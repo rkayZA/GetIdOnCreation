@@ -1,5 +1,4 @@
-﻿using ProductListUI.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProductListUI
+namespace ProductListUI.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductListControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductListControl : UserControl
     {
-        public MainWindow()
+        public ProductListControl()
         {
             InitializeComponent();
-            appContent.Content = new ProductListControl();
-        }
-
-        private void exitMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }
