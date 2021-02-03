@@ -4,3 +4,5 @@ Have a future need to retrieve a database record Id at the time it is created. \
 This Id is then used to create related records in a second table.
 
 A practice project to figure out how to do the above.
+
+Using WPF for the GUI and MSSQL for the database.
