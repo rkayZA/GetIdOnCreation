@@ -64,5 +64,11 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Product.sql" />
     <Build Include="dbo\Tables\ProductSpecification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_DeleteProduct.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ProductAdd.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetAllProducts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish Locations\ProductListDatabase.publish.xml" />
   </ItemGroup>
 </Project>

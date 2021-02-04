@@ -1,4 +1,5 @@
-﻿using ProductListUI.UserControls;
+﻿using ProductListLibrary.DataAccess;
+using ProductListUI.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,13 @@ namespace ProductListUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ISqlData _db;
+
+        public MainWindow(ISqlData db)
         {
+            _db = db;
             InitializeComponent();
-            appContent.Content = new ProductListControl();
+            appContent.Content = new ProductListControl(_db);
         }
 
         private void exitMenuItem_Click(object sender, RoutedEventArgs e)

@@ -25,7 +25,7 @@
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="0 0 30 10">
             <TextBlock Text="THE PRODUCT LIST" HorizontalAlignment="Center"/>
             <DataGrid 
-                x:Name="ProductList"
+                x:Name="ProductListGrid"
                 AutoGenerateColumns="False"
                 Margin="0 20 0 5" 
                 HorizontalGridLinesBrush="#FFC1C1C1" 
@@ -39,11 +39,11 @@
                 Height="300">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="50" Header="Id" IsReadOnly="True" />
-                    <DataGridTextColumn Width="200" Header="Product Name" />
+                    <DataGridTextColumn Width="50" Header="Id" IsReadOnly="True" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Width="200" Header="Product Name" Binding="{Binding ProductName}" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="DeleteProductButton" Content="Delete Product" Padding="15 4" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button x:Name="DeleteProductButton" Content="Delete Product" Padding="15 4" HorizontalAlignment="Center" VerticalAlignment="Top" Click="DeleteProductButton_Click"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
@@ -74,7 +74,7 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="CancelButton" Width="100" Content="Cancel" Padding="20 4" HorizontalAlignment="Left" Margin="0 0 3 0"/>
-                    <Button x:Name="SaveButton" Width="100" Content="Save" Padding="20 4" HorizontalAlignment="Left" Margin="3 0 0 0"/>
+                    <Button x:Name="SaveButton" Width="100" Content="Save" Padding="20 4" HorizontalAlignment="Left" Margin="3 0 0 0" Click="SaveButton_Click"/>
                 </StackPanel>
                 
                 

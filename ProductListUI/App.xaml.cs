@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProductListLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,6 +24,7 @@ namespace ProductListUI
 
             var services = new ServiceCollection();
             services.AddTransient<MainWindow>();
+            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -31,7 +33,7 @@ namespace ProductListUI
             IConfiguration config = builder.Build();
 
             services.AddSingleton(config);
-
+            services.AddTransient<ISqlData, SqlData>();
             serviceProvider = services.BuildServiceProvider();
             var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
