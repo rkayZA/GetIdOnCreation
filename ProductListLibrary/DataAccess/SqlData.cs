@@ -22,9 +22,24 @@ namespace ProductListLibrary.DataAccess
         }
 
 
-        public void AddNewProduct(ProductModel product)
+        public void AddNewProduct(ProductModel product, List<string> specificationList)
         {
-            _db.SaveData("sp_ProductAdd", new { product.ProductName, product.ProductDescription }, connectionStringName);
+            var addedProductId = _db.SaveDataGetId("dbo.sp_ProductAdd", product, connectionStringName);
+
+            List<SpecificationModel> specs = new List<SpecificationModel>();
+
+            foreach (string item in specificationList)
+            {
+                SpecificationModel spec = new SpecificationModel();
+                spec.ProductId = addedProductId;
+                spec.Specification = item;
+                specs.Add(spec);
+            }
+
+            foreach (var specification in specs)
+            {
+                _db.SaveData("dbo.sp_InsertSpecifications", specification, connectionStringName);
+            }
         }
 
         public void DeleteProduct(int productId)

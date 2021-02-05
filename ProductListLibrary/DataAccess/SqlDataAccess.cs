@@ -47,5 +47,16 @@ namespace ProductListLibrary.DataAccess
 
             }
         }
+
+        // Set data and return the Id
+        public int SaveDataGetId<T>(string storedProcedure, T parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                return connection.Query<int>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+        }
     }
 }

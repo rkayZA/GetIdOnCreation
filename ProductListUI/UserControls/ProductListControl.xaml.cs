@@ -63,16 +63,38 @@ namespace ProductListUI.UserControls
         {
             // Only adds product name and description
             // TODO add functionality to get the newly added product Id and save the specification list
+
+
             ProductModel product = new ProductModel();
             product.ProductName = ProductNameText.Text;
             product.ProductDescription = ProductDescriptionText.Text;
-            _db.AddNewProduct(product);
+            List<string> specificationList = ProductSpecificationsList.Items.Cast<object>().Select(o => o.ToString()).ToList();
+            _db.AddNewProduct(product, specificationList);
         }
 
         private void ClearForm()
         {
             ProductNameText.Clear();
             ProductDescriptionText.Clear();
+            ProductSpecificationsList.Items.Clear();
         }
+
+        private void AddSpecButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProductSpecificationsList.Items.Add(SpecificationText.Text);
+            SpecificationText.Clear();
+        }
+
+        private void RemoveSpecButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProductSpecificationsList.Items.RemoveAt(ProductSpecificationsList.Items.IndexOf(ProductSpecificationsList.SelectedItem));
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClearForm();
+        }
+
+        
     }
 }

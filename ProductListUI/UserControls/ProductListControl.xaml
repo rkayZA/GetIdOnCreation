@@ -58,7 +58,7 @@
                 <TextBlock Text="Specification" HorizontalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="SpecificationText" Width="180" HorizontalAlignment="Left" Margin="0 0 5 0"/>
-                    <Button x:Name="AddSpecButton" Content="Add" Padding="10 4" />
+                    <Button x:Name="AddSpecButton" Content="Add" Padding="10 4" Click="AddSpecButton_Click"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
@@ -69,12 +69,12 @@
                         HorizontalAlignment="Left" 
                         ScrollViewer.CanContentScroll="True" 
                         ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
-                    <Button x:Name="RemoveSpecButton" Content="Remove" Padding="10 4" VerticalAlignment="Center"/>
+                    <Button x:Name="RemoveSpecButton" Content="Remove" Padding="10 4" VerticalAlignment="Center" Click="RemoveSpecButton_Click"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="CancelButton" Width="100" Content="Cancel" Padding="20 4" HorizontalAlignment="Left" Margin="0 0 3 0"/>
-                    <Button x:Name="SaveButton" Width="100" Content="Save" Padding="20 4" HorizontalAlignment="Left" Margin="3 0 0 0" Click="SaveButton_Click"/>
+                    <Button x:Name="CancelButton" Width="100" Content="Cancel" Padding="20 4" HorizontalAlignment="Left" Margin="0 0 3 0" Click="CancelButton_Click"/>
+                    <Button x:Name="SaveButton" Width="100" Content="Save" Padding="20 4" HorizontalAlignment="Left" Margin="3 0 0 0" Click="SaveButton_Click" />
                 </StackPanel>
                 
                 
